@@ -1,0 +1,245 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>InSale</title>
+
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap-select.css' %}">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Resale Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<!--fonts-->
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->	
+<!-- js -->
+
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<!-- js -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-select.js' %}"></script>
+
+<script>
+  $(document).ready(function () {
+    var mySelect = $('#first-disabled2');
+
+    $('#special').on('click', function () {
+      mySelect.find('option:selected').prop('disabled', true);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#special2').on('click', function () {
+      mySelect.find('option:disabled').prop('disabled', false);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#basic2').selectpicker({
+      liveSearch: true,
+      maxOptions: 1
+    });
+  });
+</script>
+
+<script type="text/javascript" src="{% static 'js/jquery.leanModal.min.js' %}"></script>
+<link href="{% static 'css/jquery.uls.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/jquery.uls.grid.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/jquery.uls.lcd.css' %}" rel="stylesheet"/>
+<!-- Source -->
+<script src="{% static 'js/jquery.uls.data.js' %}"></script>
+<script src="{% static 'js/jquery.uls.data.utils.js' %}"></script>
+<script src="{% static 'js/jquery.uls.lcd.js' %}"></script>
+<script src="{% static 'js/jquery.uls.languagefilter.js' %}"></script>
+<script src="{% static 'js/jquery.uls.regionfilter.js' %}"></script>
+<script src="{% static 'js/jquery.uls.core.js' %}"></script>
+<script>
+			$( document ).ready( function() {
+				$( '.uls-trigger' ).uls( {
+					onSelect : function( language ) {
+						var languageName = $.uls.data.getAutonym( language );
+						$( '.uls-trigger' ).text( languageName );
+					},
+					quickList: ['en', 'hi', 'he', 'ml', 'ta', 'fr'] //FIXME
+				} );
+			} );
+		</script>
+		<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" media="screen" />
+
+<link href="{% static 'css/easy-responsive-tabs.css' %}" rel="stylesheet"/>
+
+<script src="{% static 'js/easyResponsiveTabs.js' %}"></script>
+</head>
+<body>
+<div class="header" style="
+		background-color:#2C3E50;">
+		<div class="container">
+			<div class="logo">
+				<a href="/home"><span>In</span>sale</a>
+			</div>
+			<div class="header-right">
+			<a class="account" href="/home">Home</a>
+	
+		</div>
+		</div>
+	</div>
+	<div class="banner text-center">
+	  <div class="container">    
+			<h1>Sell or Advertise   <span class="segment-heading">    anything online </span> with InSale</h1>
+			<p>Find stuffs at your own college at good prices</p>
+			<a href="/">Post Free Ad</a>
+	  </div>
+	</div>
+	<!--single-page-->
+	<div class="single-page main-grid-border">
+		<div class="container">
+			
+			<div class="product-desc">
+				<div class="col-md-7 product-view">
+					<h2>{{form.title}}</h2>
+					<p> <i class="glyphicon glyphicon-map-marker"></i><a href="#">{{form.location}}</a>, <a href="">{{form.room}}</a>| Added on {{form.time}}</p>
+					<div class="flexslider">
+						<ul class="slides">
+							<li data-thumb="{{form.pica}}">
+								<img src="{{form.pica}}" />
+							</li>
+							<li data-thumb="{{form.picb}}">
+								<img src="{{form.picb}}" />
+							</li>
+							<li data-thumb="{{form.picc}}">
+								<img src="{{form.picc}}" />
+							</li>
+						</ul>
+					</div>
+					<!-- FlexSlider -->
+					  <script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
+					<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+
+						<script>
+					// Can also be used with $(document).ready()
+					$(window).load(function() {
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						controlNav: "thumbnails"
+					  });
+					});
+					</script>
+					<!-- //FlexSlider -->
+					<div class="product-details">
+						<h4>Date of Purchase : <a>{{form.date}}</a></h4>
+						<h4>Views : <strong>150</strong></h4>
+						<p><strong>Description</strong> : {{form.desc}}</p>
+						<p><i class="glyphicon glyphicon-earphone"></i>{{form.mobile}}</p>
+					
+					</div>
+				</div>
+				<div class="col-md-5 product-details-grid">
+					<div class="item-price">
+						<div class="product-price">
+							<p class="p-price">Price</p>
+							<h3 class="rate">Rs. {{form.price}}</h3>
+							<div class="clearfix"></div>
+						</div>
+						<div class="condition">
+							<p class="p-price">Owner</p>
+									<h4>{{form.name}}</h4>
+
+							
+							<div class="clearfix"></div>
+						</div>
+						<div class="itemtype">
+							<p class="p-price">Item Type</p>
+							<h5>{{form.cat}}</h5>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+						<div class="tips">
+						<h4>Safety Tips for Buyers</h4>
+							<ol>
+								<li><a href="#">Ensure the details of seller</a></li>
+								<li><a href="#">Check for legal authenticity of Products</a></li>
+								<li><a href="#">Purcahse only when sure</a></li>
+							</ol>
+						</div>
+				</div>
+			<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--//single-page-->
+	<!--footer section start-->		
+	<!--footer section start-->		
+		<footer>
+			<div class="footer-top">
+				<div class="container">
+					<div class="foo-grids">
+						<div class="col-md-3 footer-grid">
+							<h4 class="footer-head">Who We Are</h4>
+							<p>We provide the basic solution of need fulfilment for the University students.</p>
+							<p>Reusing has been an economic method always.</p>
+						</div>
+						<div class="col-md-3 footer-grid">
+							<h4 class="footer-head">Help</h4>
+							<ul>					
+								<li><a href="sitemap.html">Contact</a></li>
+								<li><a href="/feed">Feedback</a></li>
+							</ul>
+						</div>
+						<div class="col-md-3 footer-grid">
+							<h4 class="footer-head">Information</h4>
+							<ul>
+								<li><a href="terms.html">Terms of Use</a></li>
+								<li><a href="popular-search.html">Popular searches</a></li>	
+								<li><a href="privacy.html">Privacy Policy</a></li>	
+							</ul>
+						</div>
+						<div class="col-md-3 footer-grid">
+							<h4 class="footer-head">Contact Us</h4>
+							<address>
+								<ul class="location">
+									<li><span class="glyphicon glyphicon-map-marker"></span></li>
+									<li>252- Subhash Bhawan, MMMUT</li>
+									<div class="clearfix"></div>
+								</ul>	
+								<ul class="location">
+									<li><span class="glyphicon glyphicon-earphone"></span></li>
+									<li>8574144348</li>
+									<div class="clearfix"></div>
+								</ul>	
+								<ul class="location">
+									<li><span class="glyphicon glyphicon-envelope"></span></li>
+									<li><a href="mailto:info@example.com">mail@example.com</a></li>
+									<div class="clearfix"></div>
+								</ul>						
+							</address>
+						</div>
+						<div class="clearfix"></div>
+					</div>						
+				</div>	
+			</div>	
+			<div class="footer-bottom text-center">
+			<div class="container">
+				<div class="footer-logo">
+					<a href="index.html"><span>In</span>sale</a>
+				</div>
+				<div class="footer-social-icons">
+					<ul>
+						<li><a class="facebook" href="#"><span>Facebook</span></a></li>
+						<li><a class="googleplus" href="#"><span>Google+</span></a></li>
+					</ul>
+				</div>
+				<div class="copyrights">
+					<p> © 2017 insale. All Rights Reserved | Design by  <a href="">dPSudocoders</a></p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		</footer>
+        <!--footer section end-->
+</body>
+</html>

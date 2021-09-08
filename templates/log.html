@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<html>
+		<head>
+<title>SSUK</title>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+   
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		</head>
+
+	<body style="background-color: #F1F1F1;" >
+
+
+
+<div class="navbar-fixed">
+
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">InSale</a>
+    
+    </div>
+    <div class="nav-content">
+
+      <span class="nav-title">Admin Portal</span>
+    </div>
+  </nav>
+
+</div>
+
+
+
+  
+  
+    
+
+
+
+
+
+<div class="container" style="padding-top: 100px;">
+   
+       
+
+  <div class="row">
+    <form action="{% url "log" %}" method="POST">{% csrf_token %}
+    <button class="btn waves-effect waves-light"   type="submit" name="action">Get In<i class="material-icons right">done</i>
+  </button>
+ 
+ <div class="card-panel  responsive-table">
+   
+
+
+ <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" name="fail" class="validate">
+          <label for="icon_prefix">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">linear_scale</i>
+          <input id="icon_telephone" name="fswd" type="tel" class="validate">
+          <label for="icon_telephone">Password</label>
+        </div>
+      </div>
+    </form>
+  </div>
+        
+
+      </div>
+
+
+
+
+
+
+  </div>  
+
+
+</div>
+	</body>
+</html>

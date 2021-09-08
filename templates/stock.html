@@ -1,0 +1,330 @@
+{% load staticfiles %}
+<html>
+		<head>
+<title>InSale</title>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+   
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<style type="text/css">
+  
+  #scrolly{
+            width: 1000px;
+            overflow: auto;
+            overflow-y: hidden;
+            margin: 0 auto;
+            white-space: nowrap
+        }
+</style>
+		</head>
+
+	<body style="background-color: #F1F1F1;" >
+
+
+
+<div class="navbar-fixed">
+
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="/home" class="brand-logo">InSale</a>
+      <ul class="right hide-on-med-and-down">
+          <li><a href="/owner">Dashboard</a></li>
+          <li><a href="/home">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</div>
+
+
+<script>
+        {% if messages %}
+            {% for message in messages %}
+                Materialize.toast('{{ message }}', 4000,'rounded');
+            {% endfor %}
+        {% endif %}
+</script>
+  
+  
+    
+
+
+
+
+
+<div class="container" >
+   
+       
+{% if mo %}
+
+
+ <h4> Mobiles</h4>
+
+<div class="row" id="scrolly" style="">
+{% for r in mo %}
+
+
+ <div class="col s12 m3">
+ <div class="card hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{r.pica}}" style="max-width: 100%;max-height: 100%;width: 300px;height: 200px;">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{r.title}}</span>
+      <p>&#8377; {{r.price}}</p>
+    </div>
+
+    <div class="card-action">
+              <a href="/product/{{r.title}}">Open</a>
+              <a href="/del/{{r.title}}">Delete</a>
+            </div>
+  <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+      <p>{{r.desc}}.</p><br>
+      <p>by  {{r.name}}</p>
+    </div>
+  </div>
+
+</div>
+
+
+ 
+
+{% endfor %}
+
+</div>
+ {% endif %}
+
+
+      
+{% if bsh %}
+
+ <h4> Books, Sports & hobbies</h4>
+ 
+
+<div class="row" id="scrolly" style="">
+{% for r in bsh %}
+
+
+ <div class="col s12 m3">
+ <div class="card hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{r.pica}}" style="max-width: 100%;max-height: 100%;width: 300px;height: 200px;">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{r.title}}</span>
+      <p>&#8377; {{r.price}}</p>
+    </div>
+     <div class="card-action">
+              <a href="/product/{{r.title}}">Open</a>
+              <a href="/del/{{r.title}}">Delete</a>
+            </div>
+     <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+      <p>{{r.desc}}.</p>
+       <p>by  {{r.name}}</p>
+    </div>
+  </div>
+
+</div>
+
+
+ 
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+{% if fa %}
+
+ <h4> Fashion</h4>
+
+
+<div class="row" id="scrolly" style="">
+{% for r in fa %}
+
+
+ <div class="col s12 m3">
+ <div class="card hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+       <img class="activator" src="{{r.pica}}" style="max-width: 100%;max-height: 100%;width: 300px;height: 200px;">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{r.title}}</span>
+       <p>&#8377; {{r.price}}</p>
+    </div>
+     <div class="card-action">
+              <a href="/product/{{r.title}}">Open</a>
+              <a href="/del/{{r.title}}">Delete</a>
+            </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+      <p>{{r.desc}}.</p>
+       <p>by  {{r.name}}</p>
+    </div>
+  </div>
+
+</div>
+
+
+ 
+
+{% endfor %}
+
+</div>
+ {% endif %}
+
+{% if ea is not empty %}
+
+ <h4> Electronics & Appliances</h4>
+
+<div class="row" id="scrolly" style="">
+{% for r in ea %}
+
+
+ <div class="col s12 m3">
+ <div class="card hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+       <img class="activator" src="{{r.pica}}" style="max-width: 100%;max-height: 100%;width: 300px;height: 200px;">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{r.title}}</span>
+      <p>&#8377; {{r.price}}</p>
+    </div>
+     <div class="card-action">
+              <a href="/product/{{r.title}}">Open</a>
+              <a href="/del/{{r.title}}">Delete</a>
+            </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+      <p>{{r.desc}}.</p>
+       <p>by  {{r.name}}</p>
+    </div>
+  </div>
+
+</div>
+
+
+ 
+
+{% endfor %}
+
+</div>
+ {% endif %}
+
+
+
+
+
+ {% if ex is not empty %}
+
+ <h4> Extras</h4>
+
+<div class="row" id="scrolly" style="">
+{% for r in ex %}
+
+
+ <div class="col s12 m3">
+ <div class="card hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{r.pica}}" style="max-width: 100%;max-height: 100%;width: 300px;height: 200px;">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{r.title}}</span>
+       <p>&#8377; {{r.price}}</p>
+    </div>
+     <div class="card-action">
+              <a href="/product/{{r.title}}">Open</a>
+              <a href="/del/{{r.title}}">Delete</a>
+            </div>
+   <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+      <p>{{r.desc}}.</p>
+       <p>by  {{r.name}}</p>
+    </div>
+  </div>
+
+</div>
+
+
+ 
+
+{% endfor %}
+
+</div>
+ {% endif %}
+
+
+
+ {% if fur is not empty %}
+
+<div class="row" id="scrolly" style="">
+
+ <h4> Furniture</h4>
+
+{% for r in fur %}
+
+
+ <div class="col s12 m3">
+ <div class="card hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+       <img class="activator" src="{{r.pica}}" style="max-width: 100%;max-height: 100%;width: 300px;height: 200px;">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{r.title}}</span>
+      <p>&#8377; {{r.price}}</p>
+    </div>
+     <div class="card-action">
+              <a href="/product/{{r.title}}">Open</a>
+              <a href="/del/{{r.title}}">Delete</a>
+            </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+      <p>{{r.desc}}.</p>
+       <p>by  {{r.name}}</p>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+{% endfor %}
+
+</div>
+ 
+ {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</body>
+</html>
